@@ -1,0 +1,23 @@
+[project]
+name = "{{cookiecutter.project_name}}"
+version = "{{cookiecutter.version}}"
+description = "{{cookiecutter.description}}"
+authors = [
+    { name = "{{cookiecutter.author_name}}" },
+]
+requires-python = ">={{cookiecutter.version}}"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit==4.3.0",
+    "pytest==8.4.1",
+    "pytest-cov==6.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["pip>=22.0", "setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
