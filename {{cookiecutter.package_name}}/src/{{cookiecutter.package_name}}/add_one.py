@@ -1,5 +1,34 @@
 from pathlib import Path
 
+{% if cookiecutter.include_cli == 'y' %}
+import click
+
+
+@click.command(
+    help="""
+    Add one to each line in the input file.
+    """
+)
+@click.option(
+    "--input-path",
+    type=click.Path(exists=True, path_type=Path),
+    required=True,
+    help="Path to the input files containing one integer per line.",
+)
+@click.option(
+    "--output-path",
+    type=click.Path(path_type=Path),
+    required=True,
+    help="Path to the output file containing the integers plus one.",
+)
+def add_one_cli(input_path: Path, output_path: Path) -> None:
+    """
+    Add one to each line in the input file.
+    """
+    with open(output_path, "w") as output_file:
+        for n_plus_1 in add_one_file(input_path):
+            output_file.write(str(n_plus_1) + "\n")
+{% endif %}
 
 def add_one_file(input_file: Path) -> list[int]:
     """

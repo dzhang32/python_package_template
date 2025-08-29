@@ -8,7 +8,11 @@ authors = [
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">={{cookiecutter.python_version}}"
-dependencies = []
+dependencies = [
+    {% if cookiecutter.include_cli == 'y' %}
+    "click==8.1.7",
+    {% endif %}
+]
 
 [project.optional-dependencies]
 dev = [
@@ -17,9 +21,11 @@ dev = [
     "pytest-cov==6.0.0",
 ]
 
-[build-system]
-requires = ["uv_build>=0.8.14,<0.9.0"]
-build-backend = "uv_build"
+{% if cookiecutter.include_cli == 'y' %}
+[project.scripts]
+{{cookiecutter.package_name}} = "{{cookiecutter.package_name}}.__main__:cli"
+{% endif %}
 
-[tool.pytest.ini_options]
-pythonpath = ["src"]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
