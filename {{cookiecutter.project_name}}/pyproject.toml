@@ -5,7 +5,9 @@ description = "{{cookiecutter.description}}"
 authors = [
     { name = "{{cookiecutter.author_name}}" },
 ]
-requires-python = ">={{cookiecutter.version}}"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">={{cookiecutter.python_version}}"
 dependencies = []
 
 [project.optional-dependencies]
@@ -15,9 +17,6 @@ dev = [
     "pytest-cov==6.0.0",
 ]
 
-[tool.setuptools.packages.find]
-where = ["src"]
-
 [build-system]
-requires = ["pip>=22.0", "setuptools>=61", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["uv_build>=0.8.14,<0.9.0"]
+build-backend = "uv_build"
