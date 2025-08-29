@@ -1,4 +1,4 @@
-from {{cookiecutter.project_name}}.add_one import add_one, add_one_file
+from {{cookiecutter.package_name}}.add_one import add_one, add_one_file
 from pathlib import Path
 
 def test_add_one_file(test_data_dir: Path) -> None:
