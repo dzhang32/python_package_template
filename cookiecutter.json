@@ -5,5 +5,5 @@
     "description": "What's the main goal of this package?",
     "python_version": "3.13",
     "year": "2025",
-    "include_cli": "n"
+    "include_cli": "y"
 }
