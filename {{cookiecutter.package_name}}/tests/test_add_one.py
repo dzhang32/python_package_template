@@ -1,6 +1,5 @@
 from {{cookiecutter.package_name}}.add_one import add_one, add_one_file
 {% if cookiecutter.include_cli == 'y' %}
-from {{cookiecutter.package_name}}.add_one import add_one_cli
 from {{cookiecutter.package_name}}.__main__ import cli
 
 from click.testing import CliRunner
