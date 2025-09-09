@@ -1,6 +1,7 @@
 {
     "package_name": "package_name",
     "author_name": "David Zhang",
+    "github_username": "dzhang32",
     "version": "0.1.0",
     "description": "What's the main goal of this package?",
     "python_version": "3.13",
