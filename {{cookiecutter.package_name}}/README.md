@@ -10,8 +10,6 @@ I recommend using [uv](https://docs.astral.sh/uv/) to manage the python version,
 uv venv --python 3.13
 source .venv/bin/activate
 uv pip install {{cookiecutter.package_name}}
-# Install Chromium browser binary required for playwright.
-playwright install chromium
 ```
 
 ## Additional setup
@@ -27,6 +25,7 @@ playwright install chromium
 2. Scroll to `Workflow permissions` and allow GHA to have `Read and write permissions` so it can create/push to the `gh-pages` branch.
 3. Go to `Settings` -> `Pages`.
 4. Configure your repo to deploy from the root of `gh-pages` branch.
+
 {% endif %}
 
 {% if cookiecutter.include_pypi == 'y' %}
@@ -39,4 +38,5 @@ playwright install chromium
     - **Repository name:** {{cookiecutter.package_name}}
     - **Workflow name:** test_deploy.yml
     - **Environment name:** (leave blank)
+
 {% endif %}
