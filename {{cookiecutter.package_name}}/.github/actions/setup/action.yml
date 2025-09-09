@@ -13,13 +13,13 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Set up Python ${{ inputs.python-version }}
+    - name: Set up Python {% raw %}${{ inputs.python-version }}{% endraw %}
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ inputs.python-version }}
+        python-version: {% raw %}${{ inputs.python-version }}{% endraw %}
 
     - name: Install dependencies
       shell: bash
       run: |
         python -m pip install --upgrade pip
-        pip install -e ".[${{ inputs.dependencies }}]"
+        pip install -e ".[{% raw %}${{ inputs.dependencies }}{% endraw %}]"

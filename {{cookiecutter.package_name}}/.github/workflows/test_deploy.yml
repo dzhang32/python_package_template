@@ -21,7 +21,7 @@ jobs:
       - name: Setup Python and install dependencies
         uses: ./.github/actions/setup
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: {% raw %}${{ env.PYTHON_VERSION }}{% endraw %}
           dependencies: dev
 
       - name: Run tests
@@ -33,7 +33,7 @@ jobs:
 
     # Do not run on git tag (i.e. releases).
     # Only runs if tests pass.
-    if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+    if: {% raw %}${{ !startsWith(github.ref, 'refs/tags/') }}{% endraw %}
     needs: [test]
 
     steps:
@@ -43,7 +43,7 @@ jobs:
       - name: Setup Python and install dependencies
         uses: ./.github/actions/setup
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: {% raw %}${{ env.PYTHON_VERSION }}{% endraw %}
           dependencies: docs
 
       - name: Build documentation
@@ -59,7 +59,7 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           publish_dir: ./site
   {% endif %}
 
@@ -82,7 +82,7 @@ jobs:
       - name: Setup Python and install dependencies
         uses: ./.github/actions/setup
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: {% raw %}${{ env.PYTHON_VERSION }}{% endraw %}
           dependencies: build
 
       - name: Build package
