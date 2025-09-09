@@ -1,4 +1,4 @@
-name: test-cookiecutter-template
+name: test
 
 on:
   push:
